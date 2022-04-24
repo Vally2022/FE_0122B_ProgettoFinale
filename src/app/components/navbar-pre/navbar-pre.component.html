@@ -1,0 +1,58 @@
+<nav class="navbar navbar-light bg-light navbar-collapse nav nav-tabs">
+  <form class="container-fluid justify-content-start">
+    <img src="./assets/LOGO.png"  class="logo">
+    <button class="btn btn btn-outline-secondary me-2 ms-3" type="button" [routerLink]="['/signup']" routerLinkActive="active">Sign up</button>
+    <button class="btn btn btn-outline-secondary me-2" type="button" [routerLink]="['/login']" routerLinkActive="active">Login</button>
+  </form>
+</nav>
+<div class="contenitore">
+  <div class="collapse motivo" [ngClass]="showMenu?'hide':'show'">
+    <h2 class="titolo">
+      <strong>Benvenuto nel portale che rivoluzionerà il tuo lavoro</strong>
+    </h2>
+    <h3 class="sottotitolo">
+      Non perdere tempo, <a class="btn btn btn-outline-secondary me-2" type="button" data-toggle="collapse" (click)="toggleMenu()" data-target="#navbarCollapse">
+        Contattaci
+      </a> per saperne di più
+    </h3>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarCollapse" [ngClass]="showMenu?'show':'hide'">
+    <div class="card card-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card contattaci">
+              <div class="text-center">
+                <h1>Form Contatto</h1>
+                <h6>Compila tutti i campi</h6>
+              </div>
+              
+                <form [formGroup]="form" >
+                  <div class="mb-3">
+                    <label for="username" class="form-label">Nome</label>
+                    <input formControlName="username" type="text" class="form-control" id="username"
+                      aria-describedby="username">
+      
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input formControlName="email" type="email" class="form-control" id="email" aria-describedby="email">
+      
+                  </div>
+                  <select formControlName="motivo" class="form-select" aria-label="Default select example">
+                      <label value="motivo">Scegli il motivo</label>
+                    <option value="preventivo">Preventivo</option>
+                    <option value="helpdesk">Help desk</option>
+      
+                  </select>
+                  <button type="submit" class="btn btn btn-outline-secondary mt-3" (click)="invia(form)">Invia Form</button>
+                  <span><button type="submit" class="btn btn btn-outline-secondary ms-3 mt-3"
+                    (click)="annullaForm()">Annulla</button></span>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

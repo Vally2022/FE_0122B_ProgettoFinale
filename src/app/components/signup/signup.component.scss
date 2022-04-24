@@ -1,0 +1,20 @@
+.card{
+    border: none;
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    background-color: #e3f2fd !important;
+    box-shadow: 2px 3px 3px #525b61;
+    font-size: 0.9em;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.contenitore{
+    background-image: url("/assets/sfondo_intro.jpg");
+    background-size: cover;
+    padding: 43% 0% 36% 0%;
+    
+}

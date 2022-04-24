@@ -1,0 +1,36 @@
+<app-navbar-main></app-navbar-main>
+<div class="container mt-3">
+  <div class="row row-cols-2 row-cols-md-3 g-4">
+    <div class="card-group" *ngFor="let user of users, let i = index">
+
+
+      <div class="col">
+        <div class="card h-100">
+          <img src="./assets/avatar-default-icon.png" class="avatar" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{user.id}}</h5>
+            <p class="card-text">{{user.username}}</p>
+            <p class="card-text">{{user.email}}</p>
+            <p class="card-text" *ngFor="let ruolo of user.roles, let i = index"><small
+                class="text-muted">{{user.roles[0].roleName}}</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <tr>
+      <td colspan="8">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination" *ngIf="pagina">
+            <li class="page-item" *ngIf="!pagina.first"><a class="page-link"
+                (click)="$event.preventDefault();cambiaPagina(pagina.number-1)" href="#">Previous</a></li>
+            <li class="page-item" *ngFor="let p of counter(pagina.totalPages); index as i"><a class="page-link"
+                (click)="$event.preventDefault();cambiaPagina(i)" href="#">{{i+1}}</a></li>
+            <li class="page-item" *ngIf="!pagina.last"><a class="page-link"
+                (click)="$event.preventDefault();cambiaPagina(pagina.number+1)" href="#">Next</a></li>
+          </ul>
+        </nav>
+      </td>
+    </tr>
+  </div>
+ 
+</div>

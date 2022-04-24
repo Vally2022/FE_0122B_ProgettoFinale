@@ -1,0 +1,37 @@
+<app-navbar-pre></app-navbar-pre>
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="text-center">
+            <h1>Form Contatto</h1>
+            <h6>Compila tutti i campi</h6>
+          </div>
+          
+            <form [formGroup]="form" (ngSubmit)="registraUtente(form)">
+              <div class="mb-3">
+                <label for="username" class="form-label">Nome</label>
+                <input formControlName="username" type="text" class="form-control" id="username"
+                  aria-describedby="username">
+  
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input formControlName="email" type="email" class="form-control" id="email" aria-describedby="email">
+  
+              </div>
+              <select formControlName="roles" class="form-select" aria-label="Default select example">
+                  <option value="motivo">Scegli il motivo</option>
+                <option value="admin">Preventivo</option>
+                <option value="user">Help desk</option>
+  
+              </select>
+              <button type="submit" class="btn btn btn-outline-secondary mt-3">Invia Form</button>
+  
+            </form>
+            <a [routerLink]="['/login']" routerLinkActive="active" >Già registrato?Accedi qui</a>
+        </div>
+      </div>
+    </div>
+  </div>
+

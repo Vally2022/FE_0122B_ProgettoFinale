@@ -1,0 +1,42 @@
+<app-navbar-main></app-navbar-main>
+ 
+<div class="row">
+  <div class="col-12">
+    <!--start card-->
+    <div class="container mt-2">
+      <div class="card mb-2 fattura" *ngFor="let f of fatture, let i = index">
+        <div class="card card-bg card-big">
+          <div class="card-body">
+            <div class="top-icon">
+              <img src="./assets/icona fatture.png">
+            </div>
+            <button type="button" class="btn btn-danger btn-close icon-danger" aria-label="Close" data-toggle="elimina" title="elimina" (click)="eliminaFattura(f.id)"></button>
+            <h4 class="card-text">{{f.cliente.ragioneSociale}}</h4>
+            <h5 class="card-title">{{f.id}}</h5>        
+            <p class="card-text"><strong>Fattura n: </strong>{{f.numero}}</p>
+            <p class="card-text"><strong>Del: </strong>{{f.data | date: 'MM/dd/yyyy'}}</p>
+            <p class="card-text"><strong>Totale €: </strong>{{f.importo | currency: 'EUR'}}</p>
+            <p class="card-text"><strong>Anno: </strong>{{f.anno}}</p>
+            <p class="card-text"><strong>Stato: </strong>{{f.stato.nome}}</p>          
+            <div class="d-grid gap-2">            
+            <button class="btn btn-danger" (click)="modificaFattura(f.id)" [routerLink]="['/fatture/',f.id]">Modifica</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end card-->
+  </div>
+</div>
+<tfoot>
+  <tr>
+    <td colspan="8">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination" *ngIf="pagina">
+          <li class="page-item" *ngIf="!pagina.first"><a class="page-link"
+              (click)="$event.preventDefault();cambiaPagina(pagina.number-1)" href="#"><i class="bi bi-arrow-left-square-fill"></i></a></li>
+          <li class="page-item" *ngIf="!pagina.last"><a class="page-link"
+              (click)="$event.preventDefault();cambiaPagina(pagina.number+1)" href="#"><i class="bi bi-arrow-right-square-fill"></i></a></li>
+        </ul>
+      </nav>
+    </td>
+  </tr>

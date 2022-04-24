@@ -1,0 +1,45 @@
+<app-navbar-main></app-navbar-main>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                </div>
+                <h2>Modifica la fattura</h2>
+                <form [formGroup]="form" (submit)="modifica()">
+                    <div class="mb-3">
+                        <label class="form-label">Cliente*</label>
+                        <input formControlName="cliente" type="text" class="form-control" id="cliente" required
+                            [(ngModel)]="fattura.cliente.ragioneSociale" value="{{fattura.cliente.ragioneSociale}}" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Data*</label>
+                        <input formControlName="data" type="text" class="form-control" id="data" required
+                            [(ngModel)]="fattura.data" value="{{fattura.data | date: 'MM/dd/yyyy'}}" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Numero*</label>
+                        <input formControlName="numero" type="text" class="form-control" id="numero" required
+                            [(ngModel)]="fattura.numero" value="{{fattura.numero}}" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Anno*</label>
+                        <input formControlName="anno" type="text" class="form-control" id="anno" required
+                            [(ngModel)]="fattura.anno" value="{{fattura.anno}}" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Importo*</label>
+                        <input formControlName="importo" type="text" class="form-control" id="importo" required
+                            [(ngModel)]="fattura.importo" value="{{fattura.importo | currency:'EUR'}}" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Stato*</label>
+                        <select formControlName="stato" class="form-select">
+                            <option *ngFor="let s of stato, let i = index" value="i">{{fattura.stato.nome}}</option>
+                          
+                          
+                        </select>
+                      </div>
+                      <button type="submit" class="btn btn btn-outline-secondary me-2" [routerLink]="['/fattura']">Modifica</button>
+                      <button type="submit" class="btn btn btn-outline-secondary me-2" [routerLink]="['/fattura']">Annulla</button>
+                </form>

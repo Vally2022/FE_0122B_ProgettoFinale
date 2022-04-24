@@ -1,0 +1,56 @@
+<app-navbar-main> </app-navbar-main>
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Data</th>
+        <th scope="col">Numero</th>
+        <th scope="col">Importo</th>
+        <th scope="col">Anno</th>
+        <th scope="col">Stato</th>
+        <th scope="col">
+          <button class="btn btn-outline-success me-2" [routerLink]="['/fatture/cliente/',id]">
+            <i class="bi bi-folder-plus"></i>Nuova fattura
+          </button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let f of fatturaCliente; let i = index">
+        <td scope="col">{{ fatturaCliente[i].id }}</td>
+        <td scope="col">{{ fatturaCliente[i].cliente.ragioneSociale }}</td>
+        <td scope="col">{{ fatturaCliente[i].data | date: "MM/dd/yyyy" }}</td>
+        <td scope="col">{{ fatturaCliente[i].numero }}</td>
+        <td scope="col">{{ fatturaCliente[i].importo | currency: "EUR" }}</td>
+        <td scope="col">{{ fatturaCliente[i].anno }}</td>
+        <td scope="col">{{ fatturaCliente[i].stato.nome }}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="8">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination" *ngIf="response">
+              <li class="page-item" *ngIf="!response.first">
+                <a class="page-link" (click)="
+                    $event.preventDefault(); cambiaPagina(response.number - 1)
+                  " href="#">Previous</a>
+              </li>
+              <li class="page-item" *ngFor="let p of counter(response.totalPages); index as i">
+                <a class="page-link" (click)="$event.preventDefault(); cambiaPagina(i)" href="#">{{ i + 1 }}</a>
+              </li>
+              <li class="page-item" *ngIf="!response.last">
+                <a class="page-link" (click)="
+                    $event.preventDefault(); cambiaPagina(response.number + 1)
+                  " href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

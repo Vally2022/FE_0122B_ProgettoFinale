@@ -1,0 +1,43 @@
+<app-navbar-main></app-navbar-main>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h2>Registra nuova fattura</h2>
+                </div>
+
+                <form [formGroup]="form" (submit)="salva(form)">
+
+                    <div class="mb-3">
+                        <label class="form-label">Data*</label>
+                        <input formControlName="data" type="date" class="form-control" id="data" required
+                            [(ngModel)]="fattura.data">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Numero*</label>
+                        <input formControlName="numero" type="text" class="form-control" id="numero" required
+                            [(ngModel)]="fattura.numero">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Anno*</label>
+                        <input formControlName="anno" type="text" class="form-control" id="anno" required
+                            [(ngModel)]="fattura.anno">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Importo*</label>
+                        <input formControlName="importo" type="text" class="form-control" id="importo" required
+                            [(ngModel)]="fattura.importo">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Stato*</label>
+                        <input formControlName="stato" type="text" class="form-control" id="stato" required
+                            [(ngModel)]="fattura.stato">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Ragione Sociale*</label>
+                        <input formControlName="ragioneSociale" type="text" class="form-control" id="ragioneSociale" required [(ngModel)]="cliente.id" value="{{cliente.id}}" readonly>
+            
+                      </div>
+                    <button type="submit" class="btn btn btn-outline-secondary me-2">Crea</button>
+                </form>
