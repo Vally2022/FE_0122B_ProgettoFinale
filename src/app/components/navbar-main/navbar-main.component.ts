@@ -53,7 +53,7 @@ imgAlt = 'logo'
   }
   addCollaboratore() {
     if (localStorage.getItem('utenteLoggato')) {
-      this.router.navigate(['/homepage'])
+      this.router.navigate(['/nuovo-collaboratore'])
     }
   }
   

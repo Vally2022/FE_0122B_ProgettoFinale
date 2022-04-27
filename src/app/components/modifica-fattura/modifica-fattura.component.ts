@@ -73,6 +73,5 @@ export class ModificaFatturaComponent implements OnInit {
       cliente: new FormControl(),
 
     })
-    this.router.navigate(['/fattura'])
   }
 }

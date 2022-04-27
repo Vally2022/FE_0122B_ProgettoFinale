@@ -12,12 +12,14 @@
 
           <div class="mb-3">
             <label class="form-label">Ragione Sociale*</label>
-            <input formControlName="ragioneSociale" type="text" class="form-control" id="ragioneSociale" required [(ngModel)]="cliente.ragioneSociale" value="{{cliente.ragioneSociale}}">
+            <input formControlName="ragioneSociale" type="text" class="form-control" id="ragioneSociale" required
+              [(ngModel)]="cliente.ragioneSociale" value="{{cliente.ragioneSociale}}">
 
           </div>
           <div class="mb-3">
             <label class="form-label">P. IVA*</label>
-            <input formControlName="partitaIva" type="text" class="form-control" id="partitaIva" required [(ngModel)]="cliente.partitaIva" value="{{cliente.partitaIva}}">
+            <input formControlName="partitaIva" type="text" class="form-control" id="partitaIva" required
+              [(ngModel)]="cliente.partitaIva" value="{{cliente.partitaIva}}">
 
           </div>
           <div class="mb-3">
@@ -64,46 +66,46 @@
           </div>
 
           <div formGroupName="indirizzoSedeOperativa">
-          
-          <div class="mb-3">
-            <label class="form-label">Via</label>
-            <input formControlName="via" type="text" class="form-control" id="via" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Civico</label>
-            <input formControlName="civico" type="text" class="form-control" id="civico" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">cap</label>
-            <input formControlName="cap" type="text" class="form-control" id="cap" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Località</label>
-            <input formControlName="localita" type="text" class="form-control" id="localita" required>
-          </div>
-          <div formGroupName="comune">
-            <div class="mb-3">
-              <label class="form-label">Comune*</label>
-              <select formControlName="comune" class="form-select" id="comuni" >
 
-                <option *ngFor="let item of comuni"
-                  [attr.selected]="cliente.id && item.id === cliente.indirizzoSedeOperativa.comune.id ? true : null"
-                  value="{{item.id}}">{{item.nome}}</option>
-              </select>
+            <div class="mb-3">
+              <label class="form-label">Via</label>
+              <input formControlName="via" type="text" class="form-control" id="via" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Civico</label>
+              <input formControlName="civico" type="text" class="form-control" id="civico" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">cap</label>
+              <input formControlName="cap" type="text" class="form-control" id="cap" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Località</label>
+              <input formControlName="localita" type="text" class="form-control" id="localita" required>
+            </div>
+            <div formGroupName="comune">
+              <div class="mb-3">
+                <label class="form-label">Comune*</label>
+                <select formControlName="comune" class="form-select" id="comuni">
+
+                  <option *ngFor="let item of comuni"
+                    [attr.selected]="cliente.id && item.id === cliente.indirizzoSedeOperativa.comune.id ? true : null"
+                    value="{{item.id}}">{{item.nome}}</option>
+                </select>
+              </div>
+            </div>
+            <div formGroupName="provicia">
+              <div class="mb-3">
+                <label class="form-label">Provincia*</label>
+                <select formControlName="provincia.nome" class="form-select" id="provincia" *ngIf="province">
+
+                  <option *ngFor="let item of province"
+                    [attr.selected]="cliente && item.id === cliente.indirizzoSedeOperativa.comune.provincia.id ? true : null"
+                    value="{{item.id}}">{{item.nome}}</option>
+                </select>
+              </div>
             </div>
           </div>
-          <div formGroupName="provicia">
-            <div class="mb-3">
-              <label class="form-label">Provincia*</label>
-              <select formControlName="provincia.nome" class="form-select" id="provincia" *ngIf="province">
-
-                <option *ngFor="let item of province"
-                  [attr.selected]="cliente && item.id === cliente.indirizzoSedeOperativa.comune.provincia.id ? true : null"
-                  value="{{item.id}}">{{item.nome}}</option>
-              </select>
-            </div>
-          </div>
-        </div>
           <button type="submit" class="btn btn-primary mt-3">Invia</button>
 
         </form>

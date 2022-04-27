@@ -40,6 +40,6 @@
                           
                         </select>
                       </div>
-                      <button type="submit" class="btn btn btn-outline-secondary me-2" [routerLink]="['/fattura']">Modifica</button>
+                      <button type="submit" class="btn btn btn-outline-secondary me-2" (click)="modifica()" [routerLink]="['/fattura']">Modifica</button>
                       <button type="submit" class="btn btn btn-outline-secondary me-2" [routerLink]="['/fattura']">Annulla</button>
                 </form>
